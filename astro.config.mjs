@@ -6,9 +6,7 @@ export default defineConfig({
     starlight({
       title: "James's AI Knowledge Portal",
       description: 'Technical notes on AI, Claude Code, and telecom infrastructure',
-      social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/P9Mew' },
-      ],
+      social: { github: 'https://github.com/P9Mew' },
       sidebar: [
         {
           label: 'Claude Code',
