@@ -79,6 +79,12 @@ async function sync({ repo, dest }) {
   }
 }
 
+// Clear Astro's content layer cache so it re-indexes the freshly synced files.
+// Without this, Vercel restores a stale .astro/ cache that thinks docs/ is empty.
+const astroCache = path.join(ROOT, '.astro');
+fs.rmSync(astroCache, { recursive: true, force: true });
+console.log('  cleared .astro cache\n');
+
 console.log('\nSyncing content from GitHub...');
 for (const r of REPOS) {
   console.log(`\n[${r.repo}]`);
