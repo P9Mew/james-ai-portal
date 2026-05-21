@@ -1,10 +1,24 @@
 // Fetches all .md/.mdx files from GitHub content repos at build time.
 // Writes them into src/content/docs/{public,private}/ so Starlight finds them.
+
+// Allow self-signed / intercepted TLS certs (corporate proxies, local dev).
+// Vercel's build environment has valid certs so this is harmless in production.
+if (process.env.NODE_ENV !== 'production') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+}
+
 import { Octokit } from '@octokit/rest';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import 'dotenv/config';
+import { config } from 'dotenv';
+import { existsSync } from 'fs';
+// Load .env.local first (local dev), fall back to .env (CI/Vercel uses env vars directly)
+if (existsSync(new URL('../.env.local', import.meta.url))) {
+  config({ path: new URL('../.env.local', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1') });
+} else {
+  config();
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
