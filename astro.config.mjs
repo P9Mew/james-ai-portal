@@ -12,14 +12,6 @@ export default defineConfig({
           label: 'Claude Code',
           autogenerate: { directory: 'public/claude-code' },
         },
-        {
-          label: 'AI & Infrastructure',
-          autogenerate: { directory: 'public/ai-infra' },
-        },
-        {
-          label: 'Private Notes',
-          autogenerate: { directory: 'private' },
-        },
       ],
       customCss: ['./src/styles/custom.css'],
     }),

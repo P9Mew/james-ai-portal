@@ -43,7 +43,11 @@ async function fetchTree(repo) {
     const { data } = await octokit.git.getTree({
       owner, repo, tree_sha: 'HEAD', recursive: 'true',
     });
-    return data.tree.filter(f => f.type === 'blob' && (f.path.endsWith('.md') || f.path.endsWith('.mdx')));
+    return data.tree.filter(f =>
+    f.type === 'blob' &&
+    (f.path.endsWith('.md') || f.path.endsWith('.mdx')) &&
+    !f.path.toLowerCase().endsWith('readme.md')
+  );
   } catch (e) {
     if (e.status === 404) {
       console.warn(`  WARN: repo ${owner}/${repo} not found or empty — skipping`);
