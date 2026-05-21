@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Environment — never commit real tokens
+.env.local
+.env
+
+# Content synced from GitHub at build time — not stored in this repo
+src/content/docs/public/
+src/content/docs/private/
+
+# OS
+.DS_Store
+Thumbs.db

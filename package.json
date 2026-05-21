@@ -1,0 +1,20 @@
+{
+  "name": "james-ai-portal",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "sync": "node scripts/sync-content.js",
+    "dev": "node scripts/sync-content.js && astro dev",
+    "prebuild": "node scripts/sync-content.js",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.32.0",
+    "astro": "^5.8.0"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^21.0.2",
+    "dotenv": "^16.4.7"
+  }
+}
