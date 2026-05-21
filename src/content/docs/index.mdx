@@ -1,23 +1,21 @@
 ---
 title: James's AI Knowledge Portal
-description: Technical notes on AI engineering, Claude Code, and telecom infrastructure — by James Chin.
-template: splash
-hero:
-  tagline: Structured notes on AI, Claude Code, and enterprise infrastructure — built for practitioners.
-  actions:
-    - text: Claude Code Guide
-      link: /public/claude-code/01-introduction/
-      icon: right-arrow
-      variant: primary
-    - text: View on GitHub
-      link: https://github.com/P9Mew
-      icon: external
+description: Technical notes on AI engineering, Claude Code, and telecom infrastructure.
 ---
 
-## What's Inside
+import { Card, CardGrid } from '@astrojs/starlight/components';
 
-- **Claude Code** — Beginner-to-advanced guide for the CLI tool
-- **AI Infrastructure** — Notes on AI integration in telecom and enterprise
-- **Frameworks & Workflows** — Practical patterns for working with Claude
+Welcome to James's AI Knowledge Portal — structured notes on AI, Claude Code, and enterprise infrastructure built for practitioners.
 
-Content is fetched from GitHub and rebuilt on every update.
+## Start Here
+
+<CardGrid>
+  <Card title="Claude Code Guide" icon="open-book">
+    From installation to advanced workflows. A complete guide for engineers using Claude Code CLI.
+    [Read the guide →](/public/claude-code/01-introduction/)
+  </Card>
+  <Card title="GitHub" icon="github">
+    All content is open-source and version-controlled on GitHub.
+    [View source →](https://github.com/P9Mew/james-ai-public-notes)
+  </Card>
+</CardGrid>
